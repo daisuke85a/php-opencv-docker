@@ -1,0 +1,1 @@
+FROM morozovsk/php-opencv
