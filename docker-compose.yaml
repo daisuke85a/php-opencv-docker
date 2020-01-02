@@ -2,7 +2,7 @@ version: '3'
 services:
   php-opencv:
     build: .
-    container_name: php-opencv
+    container_name: php-opencv-trim
     volumes:
       - ./src:/src
     tty: true
