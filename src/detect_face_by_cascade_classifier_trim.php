@@ -44,3 +44,22 @@ if ($eyes) {
 
 
 imwrite("results/_detect_face_by_cascade_classifier.jpg", $src);
+
+
+// include composer autoload
+require 'vendor/autoload.php';
+
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManager;
+
+// create an image manager instance with favored driver
+$manager = new ImageManager(array('driver' => 'imagick'));
+
+// to finally create image instances
+if ($faces) {
+    foreach ($faces as $key =>$face) {
+        $img = $manager->make('images/faces.jpg');
+        $img->crop($face->width, $face->height, $face->x, $face->y);
+        $img->save("results/face_{$key}.jpg");
+    }
+}
